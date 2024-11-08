@@ -86,6 +86,34 @@
 
             })
         }
+
+        
+    })
+    $('.btnSend').click(function(event){
+            //event.preventDefault();
+            //return confirm("Are You Sure To delete");
+            let td = $(this).parents('td');
+            console.log(td.attr('data-url'));
+            let url = td.attr('data-url');
+            
+            if(confirm('Are you sure to Send?'))
+        {
+            $.ajax({
+                method:'get',
+                url:url,
+                success:function(response)
+                {
+                    alert(response.success)
+                    
+                    
+                },
+                error:function(message)
+                {
+                    console.log(message)
+                }
+
+            })
+        }
         })
     </script>
 
